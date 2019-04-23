@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS中盒模型 | JavaScript Full Stack</title>
+    <meta name="description" content="Hello Brolly">
+    <link rel="icon" href="/Brolly/favicon.ico">
+  <link rel="manifest" href="/Brolly/manifest.json">
+    
+    <link rel="preload" href="/Brolly/assets/css/0.styles.a67c2e88.css" as="style"><link rel="preload" href="/Brolly/assets/js/app.7b9e173e.js" as="script"><link rel="preload" href="/Brolly/assets/js/10.b36ca8fb.js" as="script"><link rel="prefetch" href="/Brolly/assets/js/11.d3a09525.js"><link rel="prefetch" href="/Brolly/assets/js/12.c9c16877.js"><link rel="prefetch" href="/Brolly/assets/js/13.034cce5e.js"><link rel="prefetch" href="/Brolly/assets/js/14.eff92717.js"><link rel="prefetch" href="/Brolly/assets/js/15.a834fbe1.js"><link rel="prefetch" href="/Brolly/assets/js/16.c4711e3a.js"><link rel="prefetch" href="/Brolly/assets/js/17.ff2229f4.js"><link rel="prefetch" href="/Brolly/assets/js/18.5630e698.js"><link rel="prefetch" href="/Brolly/assets/js/19.2d1eb67d.js"><link rel="prefetch" href="/Brolly/assets/js/2.447e5283.js"><link rel="prefetch" href="/Brolly/assets/js/20.1d1a8fdc.js"><link rel="prefetch" href="/Brolly/assets/js/3.e674d770.js"><link rel="prefetch" href="/Brolly/assets/js/4.913a3201.js"><link rel="prefetch" href="/Brolly/assets/js/5.bdf7b1ac.js"><link rel="prefetch" href="/Brolly/assets/js/6.ab10abf4.js"><link rel="prefetch" href="/Brolly/assets/js/7.3fe457c8.js"><link rel="prefetch" href="/Brolly/assets/js/8.39454e26.js"><link rel="prefetch" href="/Brolly/assets/js/9.0951f248.js">
+    <link rel="stylesheet" href="/Brolly/assets/css/0.styles.a67c2e88.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Brolly/" class="home-link router-link-active"><!----> <span class="site-name">JavaScript Full Stack</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Brolly/" class="nav-link">首页</a></div><div class="nav-item"><a href="https://juejin.im/user/59aaafd9518825242238fbd6/posts" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  个人掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://www.yuque.com/dengnixiake/zk0n0i" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JavaScript基础教程
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Brolly/" class="nav-link">首页</a></div><div class="nav-item"><a href="https://juejin.im/user/59aaafd9518825242238fbd6/posts" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  个人掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://www.yuque.com/dengnixiake/zk0n0i" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JavaScript基础教程
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading open"><span>JavaScript起步</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/Brolly/JavaScript/Git.html" class="sidebar-link">Git入门</a></li><li><a href="/Brolly/JavaScript/Linux常用命令.html" class="sidebar-link">Linux常用命令</a></li><li><a href="/Brolly/JavaScript/Web前端介绍.html" class="sidebar-link">web前端介绍</a></li><li><a href="/Brolly/JavaScript/变量提升.html" class="sidebar-link">变量提升</a></li><li><a href="/Brolly/JavaScript/正则.html" class="sidebar-link">正则</a></li><li><a href="/Brolly/JavaScript/JS中盒模型.html" class="active sidebar-link">JS中盒模型</a></li><li><a href="/Brolly/JavaScript/获取css样式.html" class="sidebar-link">JS中获取css样式</a></li><li><a href="/Brolly/JavaScript/类名操作.html" class="sidebar-link">类名操作</a></li><li><a href="/Brolly/JavaScript/JS动画.html" class="sidebar-link">JS动画</a></li><li><a href="/Brolly/JavaScript/轮播图.html" class="sidebar-link">轮播图</a></li><li><a href="/Brolly/JavaScript/DOM事件.html" class="sidebar-link">DOM事件</a></li></ul></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Nodejs</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>webpack</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>HTTP</span> <span class="arrow right"></span></p> <!----></div></li></ul> </div> <div class="page"> <div class="content"><h2 id="盒模型属性"><a href="#盒模型属性" aria-hidden="true" class="header-anchor">#</a> 盒模型属性</h2> <div class="language-JavaScript extra-class"><pre class="language-javascript"><code>
+  <span class="token comment">// js 盒模型属性</span>
+  clientWidth 内容宽度<span class="token operator">+</span>左右padding
+  clientHeight 内容宽度<span class="token operator">+</span>上下padding
+
+  clientLeft 左边框
+  clientTop 上边框
+
+  offsetWidth clientWidth <span class="token operator">+</span> 左右边框
+  offsetHeight clientHeight <span class="token operator">+</span> 上下边框
+
+  scrollLeft 横向滚动条 滚出去的距离
+  scrollTop 纵向滚动条 滚出去的距离
+
+  scrollWidth <span class="token operator">=</span> clientWidth <span class="token operator">+</span> <span class="token function">scrollLeft</span><span class="token punctuation">(</span>最大值<span class="token punctuation">)</span>
+  scrollHeight <span class="token operator">=</span> clientHeight <span class="token operator">+</span> <span class="token function">scrollTop</span><span class="token punctuation">(</span>最大值<span class="token punctuation">)</span>
+
+</code></pre></div><h2 id="获取可视窗口的一屏宽高"><a href="#获取可视窗口的一屏宽高" aria-hidden="true" class="header-anchor">#</a> 获取可视窗口的一屏宽高</h2> <div class="language-JavaScript extra-class"><pre class="language-javascript"><code>  <span class="token comment">// 获取可视窗口的一屏宽高</span>
+  <span class="token keyword">var</span> winW <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientWidth <span class="token operator">||</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>clientWidth<span class="token punctuation">;</span>
+  <span class="token keyword">var</span> winH <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientHeight <span class="token operator">||</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>clientHeight<span class="token punctuation">;</span>
+
+  <span class="token comment">// 获取文档 盒模型属性</span>
+  <span class="token keyword">function</span> <span class="token function">win</span><span class="token punctuation">(</span>attr<span class="token punctuation">,</span> val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> val <span class="token operator">===</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">[</span>attr<span class="token punctuation">]</span> <span class="token operator">||</span> document<span class="token punctuation">.</span>body<span class="token punctuation">[</span>attr<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    document<span class="token punctuation">.</span>documentElement<span class="token punctuation">[</span>attr<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+    document<span class="token punctuation">.</span>body<span class="token punctuation">[</span>attr<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">//  var obj = {id: 'ni'};</span>
+  <span class="token comment">//  var attr = 'id';</span>
+  <span class="token comment">//  console.log(obj.attr); // 把attr 当做一个属性名</span>
+  <span class="token comment">//  console.log(obj['attr']); // 把attr 当做一个属性名</span>
+  <span class="token comment">//  console.log(obj[attr]); // 把attr当做变量 解析 obj.id</span>
+</code></pre></div><h2 id="偏移值"><a href="#偏移值" aria-hidden="true" class="header-anchor">#</a> 偏移值</h2> <div class="language-JavaScript extra-class"><pre class="language-javascript"><code>  <span class="token comment">// 偏移值</span>
+  <span class="token comment">// offsetLeft 左边框外边距离 父级参照物的左边偏移距离</span>
+  <span class="token comment">// offsetTop 上边框外边距离 父级参照物的上边偏移距离</span>
+  <span class="token comment">// offsetParent 父级参照物 平常浏览器默认是BODY ie7下 是 parentNode(父级节点)</span>
+</code></pre></div><h3 id="offsetparent"><a href="#offsetparent" aria-hidden="true" class="header-anchor">#</a> offsetParent</h3> <blockquote><p>offsetParent 可以通过 position absolute/relative/fixed 可以改变</p></blockquote> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">*</span> <span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">#outer</span> <span class="token punctuation">{</span>
+  <span class="token comment">/*position: relative;*/</span>
+  <span class="token comment">/*position: absolute;*/</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 5px solid red<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #7ffffa<span class="token punctuation">;</span>
+  <span class="token property">margin-left</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">margin-top</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">#inner</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 5px solid #ffa0d2<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #3b55ff<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 45px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">#center</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 5px solid #ff3a41<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #34ff66<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 45px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-Html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>outer<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>inner<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>center<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-JavaScript extra-class"><pre class="language-javascript"><code>  <span class="token comment">// 通常需要获取元素 距离body偏移值 (但是有可能 元素的父级参照物不是body)</span>
+  <span class="token keyword">function</span> <span class="token function">offset</span><span class="token punctuation">(</span>ele<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> l <span class="token operator">=</span> ele<span class="token punctuation">.</span>offsetLeft<span class="token punctuation">;</span>
+    <span class="token keyword">var</span> t <span class="token operator">=</span> ele<span class="token punctuation">.</span>offsetTop<span class="token punctuation">;</span>
+    <span class="token keyword">var</span> p <span class="token operator">=</span> ele<span class="token punctuation">.</span>offsetParent<span class="token punctuation">;</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">.</span>nodeName <span class="token operator">!==</span> <span class="token string">&quot;BODY&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>navigator<span class="token punctuation">.</span>userAgent<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">&quot;MSIE 8.0&quot;</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            l <span class="token operator">+=</span> p<span class="token punctuation">.</span>clientLeft<span class="token punctuation">;</span>
+            t <span class="token operator">+=</span> p<span class="token punctuation">.</span>clientTop<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        l <span class="token operator">+=</span> p<span class="token punctuation">.</span>offsetLeft<span class="token punctuation">;</span>
+        t <span class="token operator">+=</span> p<span class="token punctuation">.</span>offsetTop<span class="token punctuation">;</span>
+        p <span class="token operator">=</span> p<span class="token punctuation">.</span>offsetParent<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        left<span class="token punctuation">:</span> l<span class="token punctuation">,</span>
+        top<span class="token punctuation">:</span> t
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><h2 id="获取元素具体样式"><a href="#获取元素具体样式" aria-hidden="true" class="header-anchor">#</a> 获取元素具体样式</h2> <h3 id="ele-style"><a href="#ele-style" aria-hidden="true" class="header-anchor">#</a> ele.style</h3> <blockquote><p>只能获取行内样式</p></blockquote> <div class="language-JavaScript extra-class"><pre class="language-javascript"><code><span class="token keyword">var</span> oDiv <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'oDiv'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>oDiv<span class="token punctuation">.</span>style<span class="token punctuation">.</span>width<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="window-getcomputedstyle"><a href="#window-getcomputedstyle" aria-hidden="true" class="header-anchor">#</a> window.getComputedStyle()</h3> <blockquote><p>获取最终经过浏览器计算后的样式（最终渲染到页面的样式）, window.getComputedStyle(curEle, 伪类(不用要写成 null)) 返回值 是 CSSStyleDeclaration 的一个实例对象 里面包含着 所有经过浏览器计算过的样式属性</p></blockquote> <div class="language-JavaScript extra-class"><pre class="language-javascript"><code>   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span><span class="token function">getComputedStyle</span><span class="token punctuation">(</span>oDiv<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span><span class="token function">getComputedStyle</span><span class="token punctuation">(</span>oDiv<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'width'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   <span class="token comment">// 获取伪类样式</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span><span class="token function">getComputedStyle</span><span class="token punctuation">(</span>oDiv<span class="token punctuation">,</span> <span class="token string">':after'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'content'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span><span class="token function">getComputedStyle</span><span class="token punctuation">(</span>oDiv<span class="token punctuation">,</span> <span class="token string">':after'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">':after'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre></div><h3 id="ele-currentstyle-attr"><a href="#ele-currentstyle-attr" aria-hidden="true" class="header-anchor">#</a> ele.currentStyle[attr]</h3> <blockquote><p>window.getComputedStyle() IE LOW 9 以下 不支持这个属性方法</p></blockquote> <div class="language-JavaScript extra-class"><pre class="language-javascript"><code><span class="token comment">// IE 9 以下 需要使用 ele.currentStyle[attr]</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>oDiv<span class="token punctuation">.</span>currentStyle<span class="token punctuation">.</span>width<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>oDiv<span class="token punctuation">.</span>currentStyle<span class="token punctuation">[</span><span class="token string">'width'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="获取样式方法封装"><a href="#获取样式方法封装" aria-hidden="true" class="header-anchor">#</a> 获取样式方法封装</h3> <div class="language-JavaScript extra-class"><pre class="language-javascript"><code><span class="token comment">/**
+ *
+ * @param curEle 当前元素
+ * @param attr 样式属性
+ */</span>
+<span class="token keyword">function</span> <span class="token function">getCss</span><span class="token punctuation">(</span>curEle<span class="token punctuation">,</span> attr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> val<span class="token punctuation">;</span>
+    <span class="token keyword">var</span> reg<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token string">&quot;getComputedStyle&quot;</span> <span class="token keyword">in</span> window<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        val <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">getComputedStyle</span><span class="token punctuation">(</span>curEle<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">[</span>attr<span class="token punctuation">]</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token comment">// IE9 以下 currentStyle</span>
+        <span class="token comment">// 需要注意获取 透明度的时候 要通过 filter来获取</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>attr <span class="token operator">===</span> <span class="token string">'opacity'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            val <span class="token operator">=</span> curEle<span class="token punctuation">.</span>currentStyle<span class="token punctuation">[</span><span class="token string">'filter'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token comment">// alpha(opacity=60)</span>
+            reg <span class="token operator">=</span> <span class="token regex">/alpha\(opacity=((?:\d|[1-9]\d+)(?:\.\d+)?)\)/</span><span class="token punctuation">;</span>
+            <span class="token keyword">var</span> temp <span class="token operator">=</span> reg<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            val <span class="token operator">=</span> temp<span class="token operator">?</span> temp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">/</span><span class="token number">100</span> <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            val <span class="token operator">=</span> curEle<span class="token punctuation">.</span>currentStyle<span class="token punctuation">[</span>attr<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 把带有 px em rem pt 单位的样式属性值 提取成数字 方便动态计算</span>
+    <span class="token comment">// -90px 100px 10rem 9em display: block  0.2+1</span>
+    reg <span class="token operator">=</span> <span class="token regex">/[+-]?(\d|[1-9]\d+)(\.\d+)?(px|pt|em|rem)?/</span><span class="token punctuation">;</span>
+<span class="token comment">//        if(reg.test(val)){</span>
+<span class="token comment">//            val = parseFloat(val);</span>
+<span class="token comment">//        }</span>
+    <span class="token keyword">return</span> reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token operator">?</span> <span class="token function">parseFloat</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">:</span> val<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="渐变效果"><a href="#渐变效果" aria-hidden="true" class="header-anchor">#</a> 渐变效果</h4> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">#oDiv</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 500px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #34ff66<span class="token punctuation">;</span>
+  <span class="token property">opacity</span><span class="token punctuation">:</span> 0.1<span class="token punctuation">;</span>
+  <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">alpha</span><span class="token punctuation">(</span>opacity=10<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* IE 9 以下*/</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>oDiv<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-JS extra-class"><pre class="language-js"><code><span class="token comment">// &lt;div id=&quot;oDiv&quot;&gt;&lt;/div&gt;</span>
+
+  <span class="token keyword">var</span> op<span class="token punctuation">;</span>
+  <span class="token keyword">var</span> timer <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    op <span class="token operator">=</span> <span class="token function">getCss</span><span class="token punctuation">(</span>oDiv<span class="token punctuation">,</span> <span class="token string">'opacity'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>op <span class="token operator">&gt;=</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        oDiv<span class="token punctuation">.</span>style<span class="token punctuation">.</span>opacity <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token function">clearInterval</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    op <span class="token operator">+=</span> <span class="token number">0.05</span><span class="token punctuation">;</span>
+    oDiv<span class="token punctuation">.</span>style<span class="token punctuation">.</span>opacity <span class="token operator">=</span> op<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="设置样式封装"><a href="#设置样式封装" aria-hidden="true" class="header-anchor">#</a> 设置样式封装</h3> <div class="language-JavaScript extra-class"><pre class="language-javascript"><code>  <span class="token keyword">var</span> oDiv <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'oDiv'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// 只能通过style</span>
+  <span class="token comment">/**
+   *
+   * @param curEle 要是设置的元素
+   * @param attr 样式属性
+   * @param val  样式属性值
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">setCss</span><span class="token punctuation">(</span>curEle<span class="token punctuation">,</span> attr<span class="token punctuation">,</span> val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>attr <span class="token operator">===</span> <span class="token string">'opacity'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          curEle<span class="token punctuation">.</span>style<span class="token punctuation">[</span>attr<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span> <span class="token comment">// 主流浏览器</span>
+          curEle<span class="token punctuation">.</span>style<span class="token punctuation">[</span><span class="token string">'filter'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'alpha(opacity='</span> <span class="token operator">+</span> val <span class="token operator">*</span> <span class="token number">100</span> <span class="token operator">+</span> <span class="token string">')'</span><span class="token punctuation">;</span> <span class="token comment">// IE low</span>
+          <span class="token keyword">return</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+    <span class="token comment">// oDiv.style = 'right'</span>
+    <span class="token comment">// oDiv.style.cssFloat = 'right' // 兼容 低版本 ff chrome</span>
+    <span class="token comment">// oDiv.style.styleFloat = 'right' // IE low</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>attr <span class="token operator">===</span> <span class="token string">'float'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+          curEle<span class="token punctuation">.</span>style<span class="token punctuation">.</span>cssFloat <span class="token operator">=</span> val<span class="token punctuation">;</span>
+          curEle<span class="token punctuation">.</span>style<span class="token punctuation">.</span>styleFloat <span class="token operator">=</span> val<span class="token punctuation">;</span>
+          <span class="token keyword">return</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      curEle<span class="token punctuation">.</span>style<span class="token punctuation">[</span>attr<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">//    curEle.style[attr] = val</span>
+  <span class="token function">setCss</span><span class="token punctuation">(</span>oDiv<span class="token punctuation">,</span> <span class="token string">'opacity'</span><span class="token punctuation">,</span> <span class="token number">0.8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setCss</span><span class="token punctuation">(</span>oDiv<span class="token punctuation">,</span> <span class="token string">'float'</span><span class="token punctuation">,</span> <span class="token string">'right'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>设置样式封装-自动加单位</p> <div class="language-JS extra-class"><pre class="language-js"><code>    <span class="token comment">/**
+     * setCss 设置元素样式
+     * @param curEle 当前元素
+     * @param attr 样式属性
+     * @param val  样式值
+     */</span>
+    <span class="token keyword">function</span> <span class="token function">setCss</span><span class="token punctuation">(</span>curEle<span class="token punctuation">,</span> attr<span class="token punctuation">,</span> val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>attr <span class="token operator">===</span> <span class="token string">'opacity'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            curEle<span class="token punctuation">.</span>style<span class="token punctuation">[</span>attr<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+            curEle<span class="token punctuation">.</span>style<span class="token punctuation">[</span><span class="token string">'filter'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'alpha(opacity='</span> <span class="token operator">+</span> val <span class="token operator">*</span> <span class="token number">100</span> <span class="token operator">+</span> <span class="token string">')'</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>attr <span class="token operator">===</span> <span class="token string">'float'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            curEle<span class="token punctuation">.</span>style<span class="token punctuation">.</span>cssFloat <span class="token operator">=</span> val<span class="token punctuation">;</span>
+            curEle<span class="token punctuation">.</span>style<span class="token punctuation">.</span>styleFloat <span class="token operator">=</span> val<span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 如果是以下属性 需要 自动添加单位</span>
+        <span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token regex">/^width|height|left|top|right|bottom|fontSize|((margin|padding)(Left|Right|Top|Bottom)?)$/</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>attr<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isNaN</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                val <span class="token operator">+=</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        curEle<span class="token punctuation">.</span>style<span class="token punctuation">[</span>attr<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h4 id="批量设置样式"><a href="#批量设置样式" aria-hidden="true" class="header-anchor">#</a> 批量设置样式</h4> <div class="language-JS extra-class"><pre class="language-js"><code>  <span class="token keyword">function</span> <span class="token function">css</span><span class="token punctuation">(</span>curEle<span class="token punctuation">,</span> attr<span class="token punctuation">,</span> val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> attr <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment">// 如果第二个参数是对象 就批量设置</span>
+          <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> k <span class="token keyword">in</span> attr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+              utils<span class="token punctuation">.</span><span class="token function">setCss</span><span class="token punctuation">(</span>curEle<span class="token punctuation">,</span> k<span class="token punctuation">,</span> attr<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+          utils<span class="token punctuation">.</span><span class="token function">setCss</span><span class="token punctuation">(</span>curEle<span class="token punctuation">,</span> attr<span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+</code></pre></div><h4 id="动画效果"><a href="#动画效果" aria-hidden="true" class="header-anchor">#</a> 动画效果</h4> <div class="language-html extra-class"><pre class="language-html"><code><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Title<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>text/css<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+      <span class="token selector">#oDiv</span> <span class="token punctuation">{</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 60px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> #34ff66<span class="token punctuation">;</span>
+        <span class="token property">opacity</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+        <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">alpha</span><span class="token punctuation">(</span>opacity=0<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* IE 9 以下*/</span>
+      <span class="token punctuation">}</span>
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>oDiv<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>text/javascript<span class="token punctuation">&quot;</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>utils.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>text/javascript<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+      <span class="token keyword">var</span> oDiv <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'oDiv'</span><span class="token punctuation">)</span>
+
+      <span class="token keyword">var</span> op<span class="token punctuation">,</span> l<span class="token punctuation">,</span> t
+      oDiv<span class="token punctuation">.</span>timer <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        op <span class="token operator">=</span> utils<span class="token punctuation">.</span><span class="token function">getCss</span><span class="token punctuation">(</span>oDiv<span class="token punctuation">,</span> <span class="token string">'opacity'</span><span class="token punctuation">)</span>
+        l <span class="token operator">=</span> utils<span class="token punctuation">.</span><span class="token function">getCss</span><span class="token punctuation">(</span>oDiv<span class="token punctuation">,</span> <span class="token string">'left'</span><span class="token punctuation">)</span>
+        t <span class="token operator">=</span> utils<span class="token punctuation">.</span><span class="token function">getCss</span><span class="token punctuation">(</span>oDiv<span class="token punctuation">,</span> <span class="token string">'top'</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>op <span class="token operator">&gt;=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          utils<span class="token punctuation">.</span><span class="token function">setCss</span><span class="token punctuation">(</span>oDiv<span class="token punctuation">,</span> <span class="token string">'opacity'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+          <span class="token function">clearInterval</span><span class="token punctuation">(</span>oDiv<span class="token punctuation">.</span>timer<span class="token punctuation">)</span>
+          <span class="token keyword">return</span>
+        <span class="token punctuation">}</span>
+        op <span class="token operator">+=</span> <span class="token number">0.05</span>
+        l <span class="token operator">+=</span> <span class="token number">50</span>
+        t <span class="token operator">+=</span> <span class="token number">50</span>
+
+        utils<span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span>oDiv<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          opacity<span class="token punctuation">:</span> op<span class="token punctuation">,</span>
+          left<span class="token punctuation">:</span> l<span class="token punctuation">,</span>
+          top<span class="token punctuation">:</span> t
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">)</span>
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="utils-js封装"><a href="#utils-js封装" aria-hidden="true" class="header-anchor">#</a> utils.js封装</h2> <div class="language-JS extra-class"><pre class="language-js"><code>
+<span class="token comment">/**
+ * Created by liwenli on 2017/7/8.
+ */</span>
+<span class="token keyword">var</span> utils <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">listToArray</span><span class="token punctuation">(</span>likeAry<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span>slice<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>likeAry<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 只有try里面报错 才会执行catch里面的</span>
+            <span class="token keyword">var</span> newArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> likeAry<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                newArr<span class="token punctuation">[</span>newArr<span class="token punctuation">.</span>length<span class="token punctuation">]</span> <span class="token operator">=</span> likeAry<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> newArr<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">jsonParse</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 将json字符串转化为json对象兼容写法</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;JSON&quot;</span> <span class="token keyword">in</span> window <span class="token operator">?</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token function">eval</span><span class="token punctuation">(</span><span class="token string">'('</span> <span class="token operator">+</span> data <span class="token operator">+</span> <span class="token string">')'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 获取/设置 document文档 盒模型属性</span>
+    <span class="token keyword">function</span> <span class="token function">win</span><span class="token punctuation">(</span>attr<span class="token punctuation">,</span> val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> val <span class="token operator">===</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 获取</span>
+            <span class="token keyword">return</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">[</span>attr<span class="token punctuation">]</span> <span class="token operator">||</span> document<span class="token punctuation">.</span>body<span class="token punctuation">[</span>attr<span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// 设置</span>
+        document<span class="token punctuation">.</span>documentElement<span class="token punctuation">[</span>attr<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+        document<span class="token punctuation">.</span>body<span class="token punctuation">[</span>attr<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 获取元素距离body的偏移</span>
+    <span class="token keyword">function</span> <span class="token function">offset</span><span class="token punctuation">(</span>ele<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> l <span class="token operator">=</span> ele<span class="token punctuation">.</span>offsetLeft<span class="token punctuation">;</span>
+        <span class="token keyword">var</span> t <span class="token operator">=</span> ele<span class="token punctuation">.</span>offsetTop<span class="token punctuation">;</span>
+        <span class="token keyword">var</span> p <span class="token operator">=</span> ele<span class="token punctuation">.</span>offsetParent<span class="token punctuation">;</span>
+
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">.</span>nodeName <span class="token operator">!==</span> <span class="token string">&quot;BODY&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>navigator<span class="token punctuation">.</span>userAgent<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">&quot;MSIE 8.0&quot;</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                l <span class="token operator">+=</span> p<span class="token punctuation">.</span>clientLeft<span class="token punctuation">;</span>
+                t <span class="token operator">+=</span> p<span class="token punctuation">.</span>clientTop<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            l <span class="token operator">+=</span> p<span class="token punctuation">.</span>offsetLeft<span class="token punctuation">;</span>
+            t <span class="token operator">+=</span> p<span class="token punctuation">.</span>offsetTop<span class="token punctuation">;</span>
+            p <span class="token operator">=</span> p<span class="token punctuation">.</span>offsetParent<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span>
+            left<span class="token punctuation">:</span> l<span class="token punctuation">,</span>
+            top<span class="token punctuation">:</span> t
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token comment">/**
+     * getCss 获取样式
+     * @param curEle  当前元素
+     * @param attr 样式属性
+     * @returns {Number|String} 获取的样式值
+     */</span>
+    <span class="token keyword">function</span> <span class="token function">getCss</span><span class="token punctuation">(</span>curEle<span class="token punctuation">,</span> attr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> val<span class="token punctuation">;</span>
+        <span class="token keyword">var</span> reg<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">&quot;getComputedStyle&quot;</span> <span class="token keyword">in</span> window<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            val <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">getComputedStyle</span><span class="token punctuation">(</span>curEle<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">[</span>attr<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token comment">// IE Low filter</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>attr <span class="token operator">===</span> <span class="token string">'opacity'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 'alpha(opacity=10)'</span>
+                val <span class="token operator">=</span> curEle<span class="token punctuation">.</span>currentStyle<span class="token punctuation">[</span><span class="token string">'filter'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                reg <span class="token operator">=</span> <span class="token regex">/alpha\(opacity=((?:\d|[1-9]\d+)(?:\.\d+)?)\)/</span><span class="token punctuation">;</span>
+                <span class="token keyword">var</span> temp <span class="token operator">=</span> reg<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// 确保有没有捕获到 如果捕获到就 得到第一个分组内容 否则返回默认值 1</span>
+                val <span class="token operator">=</span> temp <span class="token operator">?</span> temp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token number">100</span> <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                val <span class="token operator">=</span> curEle<span class="token punctuation">.</span>currentStyle<span class="token punctuation">[</span>attr<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">//去掉样式值的单位 比如10px 8em 19rem 0.3 获取到的样式值 都是字符串 block red</span>
+        reg <span class="token operator">=</span> <span class="token regex">/^[+-]?(\d|[1-9]\d+)(\.\d+)?(px|em|rem|pt)?$/</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">parseFloat</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">:</span> val<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * setCss 设置元素样式
+     * @param curEle 当前元素
+     * @param attr 样式属性
+     * @param val  样式值
+     */</span>
+    <span class="token keyword">function</span> <span class="token function">setCss</span><span class="token punctuation">(</span>curEle<span class="token punctuation">,</span> attr<span class="token punctuation">,</span> val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>attr <span class="token operator">===</span> <span class="token string">'opacity'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            curEle<span class="token punctuation">.</span>style<span class="token punctuation">[</span>attr<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+            curEle<span class="token punctuation">.</span>style<span class="token punctuation">[</span><span class="token string">'filter'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'alpha(opacity='</span> <span class="token operator">+</span> val <span class="token operator">*</span> <span class="token number">100</span> <span class="token operator">+</span> <span class="token string">')'</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>attr <span class="token operator">===</span> <span class="token string">'float'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            curEle<span class="token punctuation">.</span>style<span class="token punctuation">.</span>cssFloat <span class="token operator">=</span> val<span class="token punctuation">;</span>
+            curEle<span class="token punctuation">.</span>style<span class="token punctuation">.</span>styleFloat <span class="token operator">=</span> val<span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 如果是以下属性 需要 自动添加单位</span>
+        <span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token regex">/^width|height|left|top|right|bottom|fontSize|((margin|padding)(Left|Right|Top|Bottom)?)$/</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>attr<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isNaN</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                val <span class="token operator">+=</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        curEle<span class="token punctuation">.</span>style<span class="token punctuation">[</span>attr<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * css 单独/批量设置样式
+     * @param curEle 当前元素
+     * @param attr {String|Object} 样式属性
+     * @param val  样式值
+     */</span>
+    <span class="token keyword">function</span> <span class="token function">css</span><span class="token punctuation">(</span>curEle<span class="token punctuation">,</span> attr<span class="token punctuation">,</span> val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> attr <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> k <span class="token keyword">in</span> attr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">setCss</span><span class="token punctuation">(</span>curEle<span class="token punctuation">,</span> k<span class="token punctuation">,</span> attr<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token function">setCss</span><span class="token punctuation">(</span>curEle<span class="token punctuation">,</span> attr<span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        listToArray<span class="token punctuation">,</span>
+        jsonParse<span class="token punctuation">,</span>
+        win<span class="token punctuation">,</span>
+        offset<span class="token punctuation">,</span>
+        getCss<span class="token punctuation">,</span>
+        setCss<span class="token punctuation">,</span>
+        css
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/Brolly/assets/js/app.7b9e173e.js" defer></script><script src="/Brolly/assets/js/10.b36ca8fb.js" defer></script>
+  </body>
+</html>
